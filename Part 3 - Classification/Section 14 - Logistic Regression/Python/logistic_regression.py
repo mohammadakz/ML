@@ -31,7 +31,7 @@ classifier.fit(X_train, y_train)
 
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
-
+print(classifier.predict(sc.transform([[30, 87000]])))
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
