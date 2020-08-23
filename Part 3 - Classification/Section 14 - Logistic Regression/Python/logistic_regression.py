@@ -35,6 +35,7 @@ print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test)
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
+print(accuracy_score(y_test, y_pred))
 
 # Visualising the Training set results
 X_set, y_set = X_train, y_train
