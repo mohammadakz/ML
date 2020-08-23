@@ -7,6 +7,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+from matplotlib.colors import ListedColormap
+from matplotlib.colors import ListedColormap
+
 
 # Importing the dataset
 dataset = pd.read_csv('Social_Network_Ads.csv')
@@ -29,14 +33,10 @@ classifier.fit(X_train, y_train)
 y_pred = classifier.predict(X_test)
 
 # Making the Confusion Matrix
-from sklearn.metrics import confusion_matrix
-
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
 
 # Visualising the Training set results
-from matplotlib.colors import ListedColormap
-
 X_set, y_set = X_train, y_train
 X1, X2 = np.meshgrid(np.arange(start=X_set[:, 0].min() - 1, stop=X_set[:, 0].max() + 1, step=0.01),
                      np.arange(start=X_set[:, 1].min() - 1, stop=X_set[:, 1].max() + 1, step=0.01))
@@ -54,8 +54,6 @@ plt.legend()
 plt.show()
 
 # Visualising the Test set results
-from matplotlib.colors import ListedColormap
-
 X_set, y_set = X_test, y_test
 X1, X2 = np.meshgrid(np.arange(start=X_set[:, 0].min() - 1, stop=X_set[:, 0].max() + 1, step=0.01),
                      np.arange(start=X_set[:, 1].min() - 1, stop=X_set[:, 1].max() + 1, step=0.01))
