@@ -11,7 +11,6 @@ from sklearn.metrics import confusion_matrix
 from matplotlib.colors import ListedColormap
 from matplotlib.colors import ListedColormap
 
-
 # Importing the dataset
 dataset = pd.read_csv('Social_Network_Ads.csv')
 X = dataset.iloc[:, [2, 3]].values
@@ -32,6 +31,7 @@ classifier.fit(X_train, y_train)
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 print(classifier.predict(sc.transform([[30, 87000]])))
+print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1))
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
