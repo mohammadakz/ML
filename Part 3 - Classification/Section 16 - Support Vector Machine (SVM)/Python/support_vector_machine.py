@@ -7,7 +7,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, accuracy_score
 from matplotlib.colors import ListedColormap
 from matplotlib.colors import ListedColormap
 
@@ -15,7 +15,7 @@ from matplotlib.colors import ListedColormap
 dataset = pd.read_csv('Social_Network_Ads.csv')
 X = dataset.iloc[:, [2, 3]].values
 y = dataset.iloc[:, -1].values
-
+print(X)
 # Splitting the dataset into the Training set and Test set
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=0)
 
@@ -34,7 +34,8 @@ y_pred = classifier.predict(X_test)
 # Making the Confusion Matrix
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
-
+acc = accuracy_score(y_test, y_pred)
+print(acc)
 # Visualising the Training set results
 X_set, y_set = X_train, y_train
 X1, X2 = np.meshgrid(np.arange(start=X_set[:, 0].min() - 1, stop=X_set[:, 0].max() + 1, step=0.01),
